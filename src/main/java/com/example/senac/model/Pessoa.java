@@ -3,7 +3,7 @@ package com.example.senac.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "pessoa")
+@Table(name = "pessoas")
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,6 +47,5 @@ public class Pessoa {
         this.idade = idade;
     }
 
-    // Getters e Setters omitidos para brevidade
 }
 
