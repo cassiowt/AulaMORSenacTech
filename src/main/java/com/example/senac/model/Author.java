@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,8 +24,9 @@ public class Author {
     private long id;
     private String name;
     private String pais;
-    @JoinColumn(name = "telefone_id")
-    @OneToMany(cascade={CascadeType.PERSIST})
+   
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name = "autor_id")
     Collection<Telefone> telefones = new ArrayList<Telefone>(); 
 
 
@@ -53,11 +55,11 @@ public class Author {
         this.name = name;
     }
 
-    public String getpais() {
+    public String getPais() {
         return pais;
     }
 
-    public void setpais(String pais) {
+    public void setPais(String pais) {
         this.pais = pais;
     }
 
